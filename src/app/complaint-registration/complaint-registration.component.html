@@ -1,0 +1,90 @@
+<app-header></app-header>
+    <div class="container">
+        <header>Complaint Registration</header>
+
+        <form (ngSubmit)="complaintRegister()" [formGroup]="complaintForm">
+            <!-- <form [formGroup]="complaintForm"> -->
+        <!-- <form class="form-horizontal" role="form"> -->
+            <div class="form-group">
+                <div class="details personal">
+                    <!-- <span class="title">Personal Details</span> -->
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <span class="red-star">*</span>
+                            <label for="uniqueservicenumber" class ="control-label col-sm-3">Unique Service Number</label>
+                            <input type="text" formControlName="uniqueServiceNumber" class="form-control" placeholder="Enter your unique service number"
+                            id="uniqueServiceNumber" name="uniqueServiceNumber"
+                            [(ngModel)]="complaint.uniqueServiceNumber" required>
+                            <small *ngIf="complaintForm.get('uniqueServiceNumber')?.invalid && complaintForm.get('uniqueServiceNumber')?.touched" class="text-danger">UniqueServiceNumber is Required</small>
+                        </div>
+                        <div class="input-field">
+                            <span class="red-star">*</span>
+                            <label>Category of Issue</label>
+                            <select class="form-select" (change)="changeCategoryOfIssue($event)"formControlName="categoryOfIssue" [(ngModel)] = "complaint.categoryOfIssue">
+                                <option value="null">Choose Category</option>
+                                <option *ngFor="let category of categoryOfIssue" [ngValue]="category">{{category}}</option>
+                        </select>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="red-star">*</span>
+                            <label>SubCategory of Issue</label>
+                            <select class="form-select" (change)="changeSubCategoryOfIssue($event)"formControlName="subCategoryOfIssue" [(ngModel)] = "complaint.subCategoryOfIssue">
+                                <option value="null">Choose Category</option>
+                                <option *ngFor="let category of subCategoryOfIssue" [ngValue]="category">{{category}}</option>
+                        </select>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="red-star">*</span>
+                            <label>Name of the Complainter</label>
+                            <input type="text" formControlName="name" class="form-control" placeholder="Enter your name"
+                            id="name" name="name"
+                            [(ngModel)]="complaint.name" required>
+                            <small *ngIf="complaintForm.get('name')?.invalid && complaintForm.get('name')?.touched" class="text-danger">Name is Required</small>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="red-star">*</span>
+                            <label>Email Id</label>
+                            <input type="email" formControlName="emailAddress" class="form-control" placeholder="Enter your email"
+                            id="emailAddress" name="emailAddress"
+                            [(ngModel)]="complaint.emailAddress" required>
+                            <small *ngIf="complaintForm.get('emailAddress')?.invalid && complaintForm.get('emailAddress')?.touched" class="text-danger">Email is Required</small>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="red-star">*</span>
+                            <label>Mobile Number</label>
+                            <input type="number" formControlName="mobileNumber" class="form-control" placeholder="Enter your mobile number"
+                            id="mobileNumber" name="mobileNumber"
+                            [(ngModel)]="complaint.mobileNumber" required>
+                            <small *ngIf="complaintForm.get('mobileNumber')?.invalid && complaintForm.get('mobileNumber')?.touched" class="text-danger">Mobile Number is Required</small>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="red-star">*</span>
+                            <label>Upload Doc</label>
+                            <input type="file" class = "form-control" accept="pdf/*" (change)="onSelectFile($event)" placeholder="Attach document">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+
+                    <div class="backBtn">
+                        <button type="submit" class="btn btn-success">
+                            <span class="btnText">Submit</span>
+                        </button>
+                    </div>
+        
+        
+                    <div class="cancelBtn">
+                        <button type="cancel" class="btn btn-default">
+                        <span class="btnText">Cancel</span>
+                        </button>
+                    </div>
+                </div>
+        
+                

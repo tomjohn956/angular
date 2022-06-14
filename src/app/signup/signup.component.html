@@ -1,0 +1,132 @@
+<!-- <div class="row"> -->
+<app-header></app-header>
+<!-- </div> -->
+<!-- <div class="row col-sm-2"></div> -->
+<div class="container">
+<!-- <div class="row col-sm-8"> -->
+    <header>Registration Form</header>
+
+    <form (ngSubmit)="userSignup()" [formGroup]="signupForm">
+        <!-- <form class="form-horizontal" role="form"> -->
+        <div class="form-group">
+            <div class="details personal">
+                <!-- <span class="title">Personal Details</span> -->
+
+                <div class="fields">
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label class="col-form-label">User Name</label>
+                        <input formControlName="username" type="text" class="form-control" placeholder="Enter your username" id="username" name="username"
+                            [(ngModel)]="user.username">
+                            <small *ngIf="username?.invalid && username?.touched" class="text-danger">UserName is Required</small> 
+                    </div>
+                            
+
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label class="col-form-label">Name</label>
+                        <input type="text" formControlName="name" class="form-control" placeholder="Enter your name" id="name" name="name" [(ngModel)]="user.name"
+                            required>
+                            <small *ngIf="name?.invalid && name?.touched" class="text-danger">Name is Required</small> 
+                    </div>
+
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label class="col-form-label">Mobile Number</label>
+                        <input type="text" formControlName="mobileNumber" class="form-control" placeholder="Enter mobile number" id="mobileNumber" name="mobileNumber"
+                            [(ngModel)]="user.mobileNumber" required>
+                            <small *ngIf="mobileNumber?.invalid && mobileNumber?.touched" class="text-danger">Phone no is Required(10 numbers are only allowed)</small> 
+                    </div>
+
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label>Email address</label>
+                        <input type="email" formControlName="emailAddress" class="form-control" placeholder="Enter your email" id="emailAddress" name="emailAddress"
+                            [(ngModel)]="user.emailAddress" required>
+                            <small *ngIf="emailAddress?.invalid && emailAddress?.touched" class="text-danger">Email is Required</small> 
+                    </div>
+
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label>Confirm Email address</label>
+                        <input type="email" formControlName="confirmEmailAddress" class="form-control" placeholder="Enter your email" id="confirmEmailAddress"
+                            name="confirmEmailAddress" [(ngModel)]="user.confirmEmailAddress" required>
+                            <small *ngIf="confirmEmailAddress?.invalid && confirmEmailAddress?.touched" class="text-danger">Email is Required</small> 
+                    </div>
+
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label>Address</label>
+                        <input type="text" formControlName="address" class="form-control" placeholder="Enter your address" id="address" name="address"
+                            [(ngModel)]="user.address" required>
+                            <small *ngIf="address?.invalid && address?.touched" class="text-danger">Address is Required</small> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="details ID">
+                <span class="title">Login Information</span>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label>Enter Password</label>
+                        <input type="password" formControlName="password" class="form-control" placeholder="Enter your password" id="password" name="password"
+                            [(ngModel)]="user.password" required>
+                            <small *ngIf="password?.invalid && password?.touched" class="text-danger">Password is Required</small>
+                    </div>
+
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label>Confirm Password</label>
+                        <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Enter your password" id="confirmPassword" name="confirmPassword" [(ngModel)]="user.confirmPassword"
+                            required>
+                            <small *ngIf="confirmPassword?.invalid && confirmPassword?.touched" class="text-danger">Password is Required</small>
+                    </div>
+
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label>Hint Question</label>
+                        <select class="form-select" (change)="changeHintQuestion($event)"formControlName="hintQuestion" [(ngModel)] = "user.HintQuestion">
+                            <option value="">Choose Hint Question</option>
+                            <option *ngFor="let hint of hintQuestion" [ngValue]="hint">{{hint}}</option>
+                        </select>
+
+                        <small *ngIf="isSubmitted && HintQuestion?.invalid" class="text-danger">Please provide hint question</small>
+                    </div>
+
+                    <div class="input-field">
+                        <span class="red-star">*</span>
+                        <label>Hint Answer</label>
+                        <input type="text" formControlName="hintAnswer" class="form-control" placeholder="Enter your answer" id="hintAnswer" name="hintAnswer"
+                            [(ngModel)]="user.hintAnswer" required>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    
+        <div class="buttons">
+        <div class = "backBtn">
+                <!-- <button (click)="clicksub()" [disabled]="signupForm.invalid" type="submit" -->
+                    <button type="submit" class="btn btn-success">
+                    <span class="btnText">Submit</span>
+                    </button>
+        </div>
+              <div class = "cancelBtn">      
+                <button type="cancel" class="btn btn-default">
+                <span class="btnText">Cancel</span>
+                </button>
+              </div>
+        </div>
+
+    </form>
+    
+</div>
+<app-modal
+[displayModal]="displayModal"
+ [modalTittle]="modalTittle"
+  [modalText]="modalText">
+</app-modal>

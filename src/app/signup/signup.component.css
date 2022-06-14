@@ -1,0 +1,239 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0px;
+    padding: 0%;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', sans-serif; */
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(14, 165, 235);
+}
+.container{
+    position: relative;
+    max-width: 900px;
+    width: 50%;
+    border-radius: 6px;
+    padding: 21px;
+    margin: 22px 260px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(230, 145, 16);
+}
+.container form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 690px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.container form .form{
+    position: absolute;
+    background-color: #fff;
+    transition: 0.3s ease;
+}
+.container form .form.second{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+}
+form.secActive .form.second{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+form.secActive .form.first{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+}
+.container form .title{
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 1px 0;
+    color: rgb(11, 22, 227);
+}
+.container form .fields{
+    display: inline-block;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+form .fields .input-field{
+    display: inline-block;
+    width: calc(100% / 1 - 15px);
+    margin: 4px 0;
+    
+}
+.input-field label{
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    color: #2e2e2e;
+    width:32%;
+}
+.input-field small{
+    color: red;
+    font-size: xx-small;
+    padding: 34%;
+}
+.input-field input, select{
+    display: inline-block;
+    outline:none;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 15px;
+    height: 42px;
+    width:60%;
+}
+.form-control.ng-touched.ng-invalid {
+    border:1px solid red;
+   }
+   .form-control.ng-touched.ng-valid {
+    border:1px solid green;
+   }
+.error{
+    color:red;
+}
+.input-field input :focus,
+.input-field select:focus{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.input-field select,
+.input-field input[type="date"]{
+    color: #707070;
+}
+.input-field input[type="date"]:valid{
+    color: #333;
+}
+.container form button, .backBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #1ce80a;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    margin-right: 2%;
+}
+.container form button, .cancelBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #8f8d8c;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.container form button, .backBtn button.btn.btn-success{
+    background-color:#1ce80a;
+}
+.container form button, .cancelBtn button.btn.btn-default{
+    background-color:#8f8d8c;
+}
+
+.container form .btnText{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 6%;
+}
+form button:hover{
+    background-color: #265df2;
+}
+form button i,
+form .backBtn i{
+    margin: 0 6px;
+}
+form .backBtn i{
+    transform: rotate(180deg);
+} 
+form .buttons{
+    display: flex;
+    align-items: center;
+    margin-top:-10%;
+    padding:9%; 
+}
+form .buttons button , .backBtn{
+    margin-right: 14px;
+}
+form .buttons button , .cancelBtn{
+    margin-right: 14px;
+}
+span.btnText{
+    padding: 41%;
+}
+form{
+    color: #265df2;
+}
+button.btn.btn-success{
+    width: 1px;
+}
+
+
+@media (max-width: 750px) {
+    .container form{
+        overflow-y: scroll;
+    }
+    .container form::-webkit-scrollbar{
+       display: none;
+    }
+    form .fields .input-field{
+        width: calc(100% / 2 - 15px);
+    }
+}
+.form-group{
+    margin-bottom:1rem;
+}
+.label{
+    font-weight:normal;
+    font-size:14px;
+    line-height:2;
+}
+.col-form-label{
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(0.375rem + 1px);
+    margin-bottom: 0
+}
+.col-4{
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.red-star {
+    color: red;
+}
+
+@media (max-width: 550px) {
+    form .fields .input-field{
+        width: 100%;
+    }
+}
